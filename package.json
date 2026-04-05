@@ -1,0 +1,30 @@
+{
+  "name": "social-media-handler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "bcryptjs": "^3.0.3",
+    "body-parser": "^2.2.1",
+    "cors": "^2.8.5",
+    "csv-parse": "^6.1.0",
+    "csv-parser": "^3.2.0",
+    "csv-stringify": "^6.6.0",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "express-async-handler": "^1.2.0",
+    "express-fileupload": "^1.5.2",
+    "form-data": "^4.0.5",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.0.2",
+    "node-cron": "^4.2.1"
+  }
+}

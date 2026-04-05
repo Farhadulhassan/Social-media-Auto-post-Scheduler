@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
                 const message = error.response?.data?.message || error.message || 'Something went wrong';
 
                 // Don't toast for 404s on initial data fetch if handled locally
-                if (error.response?.status === 401) {
+                if (error.response?.status === 401 && !error.config?.url?.includes('/login')) {
                     toast.error('Session expired. Please login again.');
                     logout();
                 } else if (error.response?.status === 403) {

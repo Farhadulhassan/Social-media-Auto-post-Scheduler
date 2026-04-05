@@ -33,6 +33,28 @@ const PORT = process.env.PORT || 3000;
 // Connect to Database
 connectDB();
 
+// Seed Default Admin
+const seedAdmin = async () => {
+    try {
+        const User = mongoose.model('User');
+        const adminEmail = process.env.ADMIN_EMAIL || 'admin@admin.com';
+        const adminPass = process.env.ADMIN_PASSWORD || 'admin123';
+        
+        const adminExists = await User.findOne({ email: adminEmail });
+        if (!adminExists) {
+            await User.create({
+                name: 'Super Admin',
+                email: adminEmail,
+                password: adminPass,
+                status: 'APPROVED'
+            });
+            console.log(`[Seed] Default Admin created: ${adminEmail} / ${adminPass}`);
+        }
+    } catch (error) {
+        console.error('[Seed] Error seeding admin:', error);
+    }
+};
+seedAdmin();
 const PLATFORMS = {
     linkedin: path.join(__dirname, 'linkedin_schedule.csv'),
     facebook: path.join(__dirname, 'facebook_schedule.csv'),
